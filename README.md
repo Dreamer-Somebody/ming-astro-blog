@@ -31,7 +31,7 @@ It is deployed primarily on Cloudflare Pages.
 - **Routing and page composition**: `src/pages/`
 - **Global layout shell**: `src/layouts/BaseLayout.astro`
 - **Interactive islands**: `*.tsx` components mounted inside Astro pages/components
-- **Shared client bootstraps**: `src/scripts/` (theme, global shortcuts, service worker)
+- **Shared client bootstraps**: `src/scripts/` (theme, global shortcuts)
 - **Cloudflare function parity**:
   - Astro API route: `src/pages/api/ai/chat.ts`
   - Pages Function route: `functions/api/ai/chat.ts`
