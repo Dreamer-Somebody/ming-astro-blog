@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Avatar3D from "../components/about-page/resume/Avatar3D.astro";
+import ResumeLanguageIsland from "../components/about-page/resume/ResumeLanguageIsland";
+import ResumeSidebarPanels from "../components/about-page/resume/ResumeSidebarPanels.astro";
+import ResumeEditorTopbar from "../components/about-page/resume/ResumeEditorTopbar.astro";
+import ResumeCodePanels from "../components/about-page/resume/ResumeCodePanels.astro";
+import ResumeWorkbench from "../components/about-page/resume/ResumeWorkbench.astro";
+import {
+  aboutCodePanelsByLang,
+  aboutSidebarByLang,
+  defaultAboutLanguage,
+} from "../data/about";
+
+const pageTitle = "About | Mr. Woo";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <section class="py-6 sm:py-8">
+    <header class="about-header mb-4 sm:mb-6">
+
+    </header>
+
+    <ResumeWorkbench>
+      <div slot="topbar">
+        <ResumeEditorTopbar />
+      </div>
+
+      <div slot="sidebar">
+        <div class="avatar-shell rounded-xl border border-base-300/80 bg-base-200/35 p-2.5">
+          <Avatar3D />
+        </div>
+        <ResumeSidebarPanels
+          sidebarByLang={aboutSidebarByLang}
+          defaultLanguage={defaultAboutLanguage}
+        />
+      </div>
+
+      <div slot="main">
+        <ResumeCodePanels
+          codeByLang={aboutCodePanelsByLang}
+          defaultLanguage={defaultAboutLanguage}
+        />
+      </div>
+    </ResumeWorkbench>
+  </section>
+
+  <ResumeLanguageIsland client:load />
+</BaseLayout>
+
+<style>
+  .about-header {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-base-content) 9%, transparent);
+    padding-bottom: 0.9rem;
+  }
+
+  .avatar-shell {
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-base-100) 50%, transparent);
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/index-page/hero/Hero.astro";
+import Timeline from "../components/index-page/timeline/Timeline.astro";
+
+const pageTitle = "Home";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="index-theme-legacy">
+    <!-- Hero Component -->
+    <Hero />
+
+    <!--<div class="w-full h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>-->
+    <!--&lt;!&ndash; Project Carousel &ndash;&gt;-->
+    <!--<Project />-->
+
+    <div class="w-full h-0.5 bg-linear-to-r from-transparent via-gray-300 to-transparent"></div>
+    <!-- The Development Timeline -->
+    <Timeline />
+  </div>
+
+  <style is:global>
+    .index-theme-legacy {
+      color: var(--app-text);
+    }
+  </style>
+</BaseLayout>
